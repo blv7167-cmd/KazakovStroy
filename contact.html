@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты | Казаков Ю.М. | Строительство домов в Казани</title>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header" id="header">
+    <div class="container">
+        <div class="header-inner">
+            <div class="logo">Казаков <span>Ю.М.</span></div>
+            <div class="nav">
+                <a href="index.html">Главная</a>
+                <a href="services.html">Услуги</a>
+                <a href="projects.html">Проекты</a>
+                <a href="prices.html">Цены</a>
+                <a href="blog.html">Блог</a>
+                <a href="contact.html" class="active">Контакты</a>
+                <a href="tel:+78431234567" class="header-phone"><i class="fas fa-phone-alt"></i> +7 (843) 123-45-67</a>
+            </div>
+            <div class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="contact" style="padding-top: 120px;">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 class="section-title" style="text-align: left;">Свяжитесь со мной</h2>
+                    <div class="contact-item"><i class="fas fa-phone-alt"></i><div>+7 (843) 123-45-67</div></div>
+                    <div class="contact-item"><i class="fab fa-whatsapp"></i><div>WhatsApp: +7 (843) 123-45-67</div></div>
+                    <div class="contact-item"><i class="fab fa-telegram"></i><div>Telegram: @kazakov_stroy</div></div>
+                    <div class="contact-item"><i class="fas fa-envelope"></i><div>kazakov@kazan-stroy.ru</div></div>
+                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i><div>г. Казань, ул. Профессора Камая, 15</div></div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Ваше имя" required>
+                        <input type="tel" placeholder="Телефон" required>
+                        <textarea rows="4" placeholder="Сообщение"></textarea>
+                        <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>© 2026 Казаков Юрий Михайлович. Строительство домов под ключ в Казани и Республике Татарстан.</p>
+        <p style="margin-top: 12px; font-size: 0.875rem;">Работаем по всей Республике Татарстан: Казань, Зеленодольск, Лаишево, Салмачи, Залесный и другие районы.</p>
+    </div>
+</footer>
+
+<div class="modal" id="successModal">
+    <div class="modal-content">
+        <i class="fas fa-check-circle" style="font-size: 50px; color: #c4a747;"></i>
+        <h3>Спасибо!</h3>
+        <p>Ваша заявка отправлена. Юрий Михайлович свяжется с вами в ближайшее время.</p>
+        <button class="btn btn-primary" onclick="closeModal()">Закрыть</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

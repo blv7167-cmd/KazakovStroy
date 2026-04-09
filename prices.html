@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цены | Казаков Ю.М. | Строительство домов в Казани</title>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header" id="header">
+    <div class="container">
+        <div class="header-inner">
+            <div class="logo">Казаков <span>Ю.М.</span></div>
+            <div class="nav">
+                <a href="index.html">Главная</a>
+                <a href="services.html">Услуги</a>
+                <a href="projects.html">Проекты</a>
+                <a href="prices.html" class="active">Цены</a>
+                <a href="blog.html">Блог</a>
+                <a href="contact.html">Контакты</a>
+                <a href="tel:+78431234567" class="header-phone"><i class="fas fa-phone-alt"></i> +7 (843) 123-45-67</a>
+            </div>
+            <div class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="prices" style="padding-top: 120px;">
+        <div class="container">
+            <h2 class="section-title">Цены на строительство</h2>
+            <p class="section-subtitle">Прозрачное ценообразование без скрытых платежей</p>
+            <div class="prices-grid">
+                <div class="price-card"><h3>Эконом</h3><div class="price">от 45 000 ₽/м²</div><ul><li>✅ Фундамент УШП</li><li>✅ Стены газоблок 400мм</li><li>✅ Кровля металлочерепица</li><li>✅ Остекление ПВХ</li><li>✅ Отопление (черновое)</li></ul><a href="contact.html" class="btn btn-outline">Заказать</a></div>
+                <div class="price-card"><h3>Стандарт</h3><div class="price">от 55 000 ₽/м²</div><ul><li>✅ Фундамент УШП+</li><li>✅ Стены газоблок 400мм + утепление</li><li>✅ Кровля металлочерепица премиум</li><li>✅ Остекление двухкамерное</li><li>✅ Отопление (чистовое)</li><li>✅ Электрика (чистовая)</li></ul><a href="contact.html" class="btn btn-primary">Заказать</a></div>
+                <div class="price-card"><h3>Премиум</h3><div class="price">от 75 000 ₽/м²</div><ul><li>✅ Фундамент монолитная плита</li><li>✅ Стены керамоблок + утепление 150мм</li><li>✅ Кровля натуральная черепица</li><li>✅ Остекление алюминий/дерево</li><li>✅ Отопление теплые полы + радиаторы</li><li>✅ Умный дом (базовый)</li></ul><a href="contact.html" class="btn btn-outline">Заказать</a></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="calculator">
+        <div class="container">
+            <h2 class="section-title">Калькулятор стоимости</h2>
+            <p class="section-subtitle">Получите примерную цену вашего дома в Казани за 1 минуту</p>
+            <div class="calc-form">
+                <select id="houseType">
+                    <option value="55000">Дом до 100м² - от 55 000 ₽/м²</option>
+                    <option value="50000">Дом 100-150м² - от 50 000 ₽/м²</option>
+                    <option value="45000">Дом 150-200м² - от 45 000 ₽/м²</option>
+                    <option value="40000">Дом от 200м² - от 40 000 ₽/м²</option>
+                </select>
+                <input type="number" id="houseArea" placeholder="Площадь дома (м²)" value="150">
+                <button class="btn btn-primary" onclick="calculatePrice()">Рассчитать</button>
+                <div class="calc-result" id="calcResult"></div>
+                <p style="font-size:0.8rem; text-align:center; margin-top:16px;">*Цена указана за коробку с кровлей и инженерными сетями</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>© 2026 Казаков Юрий Михайлович. Строительство домов под ключ в Казани и Республике Татарстан.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
