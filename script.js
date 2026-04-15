@@ -31,7 +31,9 @@ if (mobileBtn) {
     document.querySelectorAll('.nav a').forEach(link => {
         link.addEventListener('click', () => {
             if (window.innerWidth <= 768) {
-                nav.style.display = '';
+                setTimeout(() => {
+                    nav.style.display = '';
+                }, 100);
             }
         });
     });
@@ -69,11 +71,20 @@ const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        
+        // Honeypot check
+        const honeypot = contactForm.querySelector('input[name="honeypot"]');
+        if (honeypot && honeypot.value !== '') {
+            console.log('Bot detected, form ignored');
+            return;
+        }
+        
         const phoneInput = contactForm.querySelector('input[type="tel"]');
         if (phoneInput && !validatePhone(phoneInput.value)) {
             alert('Пожалуйста, введите корректный номер телефона');
             return;
         }
+        
         document.getElementById('successModal').classList.add('active');
         contactForm.reset();
     });
@@ -93,31 +104,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     if (typeof calculatePrice === 'function') calculatePrice();
+    startPromoTimer(new Date(2026, 4, 31, 23, 59, 59));
 });
+
+// Promo Timer
+function startPromoTimer(targetDate) {
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+    
+    if (!daysEl) return;
+    
+    function updateTimer() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+        
+        if (distance < 0) {
+            const timerDiv = document.getElementById('promoTimer');
+            if (timerDiv) timerDiv.innerHTML = '<div class="timer-expired">Акция завершена</div>';
+            return;
+        }
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+        if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+        if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+        if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+    }
+    
+    updateTimer();
+    setInterval(updateTimer, 1000);
+}
 
 // Кнопка "Наверх"
 const btnTop = document.createElement('button');
 btnTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
 btnTop.className = 'btn-top';
-btnTop.style.cssText = `
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #c4a747;
-    color: white;
-    border: none;
-    cursor: pointer;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    transition: 0.3s;
-    z-index: 999;
-`;
 btnTop.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 document.body.appendChild(btnTop);
 

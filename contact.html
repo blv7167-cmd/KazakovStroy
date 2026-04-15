@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакты | Казаков Ю.М. | Строительство домов в Казани</title>
+    <meta name="description" content="Контакты строительной компании Казаков Ю.М. Телефон, WhatsApp, Telegram, email, адрес в Казани.">
+    <meta property="og:title" content="Контакты | Казаков Ю.М.">
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -31,7 +35,13 @@
 </header>
 
 <main>
-    <section class="contact" style="padding-top: 120px;">
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="index.html">Главная</a> / <span>Контакты</span>
+        </div>
+    </div>
+
+    <section class="contact" style="padding-top: 0;">
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-info">
@@ -44,9 +54,10 @@
                 </div>
                 <div class="contact-form">
                     <form id="contactForm">
-                        <input type="text" placeholder="Ваше имя" required>
-                        <input type="tel" placeholder="Телефон" required>
-                        <textarea rows="4" placeholder="Сообщение"></textarea>
+                        <input type="text" name="name" placeholder="Ваше имя" required>
+                        <input type="tel" name="phone" placeholder="Телефон" required>
+                        <textarea name="message" rows="4" placeholder="Сообщение"></textarea>
+                        <input type="text" name="honeypot" style="display:none" tabindex="-1" autocomplete="off">
                         <button type="submit" class="btn btn-primary">Отправить заявку</button>
                     </form>
                 </div>
@@ -59,6 +70,9 @@
     <div class="container">
         <p>© 2026 Казаков Юрий Михайлович. Строительство домов под ключ в Казани и Республике Татарстан.</p>
         <p style="margin-top: 12px; font-size: 0.875rem;">Работаем по всей Республике Татарстан: Казань, Зеленодольск, Лаишево, Салмачи, Залесный и другие районы.</p>
+        <p style="margin-top: 12px;">
+            <a href="privacy.html" style="color: #c4a747; text-decoration: none;">Политика конфиденциальности</a>
+        </p>
     </div>
 </footer>
 
