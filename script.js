@@ -23,7 +23,17 @@ if (mobileBtn) {
             nav.style.backgroundColor = '#fff';
             nav.style.padding = '20px';
             nav.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+            nav.style.zIndex = '999';
         }
+    });
+    
+    // Закрывать меню при клике на ссылку
+    document.querySelectorAll('.nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                nav.style.display = '';
+            }
+        });
     });
 }
 
@@ -48,11 +58,22 @@ function calculatePrice() {
     if (resultDiv) resultDiv.innerHTML = `Примерная стоимость: ${total.toLocaleString()} ₽`;
 }
 
+// Валидация телефона
+function validatePhone(phone) {
+    const phoneClean = phone.replace(/[^\d+]/g, '');
+    return phoneClean.length >= 10;
+}
+
 // Form submission
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        const phoneInput = contactForm.querySelector('input[type="tel"]');
+        if (phoneInput && !validatePhone(phoneInput.value)) {
+            alert('Пожалуйста, введите корректный номер телефона');
+            return;
+        }
         document.getElementById('successModal').classList.add('active');
         contactForm.reset();
     });
@@ -72,4 +93,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     if (typeof calculatePrice === 'function') calculatePrice();
+});
+
+// Кнопка "Наверх"
+const btnTop = document.createElement('button');
+btnTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+btnTop.className = 'btn-top';
+btnTop.style.cssText = `
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #c4a747;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: 0.3s;
+    z-index: 999;
+`;
+btnTop.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+document.body.appendChild(btnTop);
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        btnTop.style.display = 'flex';
+    } else {
+        btnTop.style.display = 'none';
+    }
 });
